@@ -8,6 +8,8 @@ const io = require("socket.io")(server, {
     }
 });
 
+const PORT = process.env.PORT || 5000;
+
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
@@ -38,6 +40,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(5000, () => {
-    console.log('listening on *:5000');
+server.listen(PORT, () => {
+    console.log(`listening on *:${PORT}`);
 });
